@@ -4,9 +4,8 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
+
 
 @Entity(name = "Content")
 @Data
@@ -21,7 +20,7 @@ public class Content {
     @Column(name = "content")
     private String content;
 
-    @Column(name = "contentImgUrl")
+    @Column(name = "content_img_url")
     private String contentUrl;
 
     @OneToMany(

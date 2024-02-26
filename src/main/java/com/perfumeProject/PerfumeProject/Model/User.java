@@ -3,6 +3,9 @@ import jakarta.persistence.*;
 
 import lombok.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 @Entity
 @Data
@@ -22,4 +25,11 @@ public class User {
     private String userEmail;
     @Column(name = "password")
     private String userPassword;
+
+    @OneToMany(
+            mappedBy = "user",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    private List<Favorite> perfume = new ArrayList<>();
 }

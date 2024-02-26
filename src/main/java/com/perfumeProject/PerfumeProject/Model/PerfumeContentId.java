@@ -6,7 +6,6 @@ import jakarta.persistence.Embeddable;
 import lombok.Data;
 
 import java.io.Serializable;
-import java.util.Objects;
 
 @Data
 @Embeddable
@@ -17,12 +16,5 @@ public class PerfumeContentId implements Serializable {
 
     @Column(name = "content_id")
     private Long contentId;
-
-    // constructor, getter, setter
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(perfumeId, contentId);
-    }
 
 }

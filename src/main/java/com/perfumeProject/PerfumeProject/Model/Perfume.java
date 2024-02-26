@@ -29,5 +29,11 @@ public class Perfume {
     )
     private List<PerfumeContent> contents = new ArrayList<>();
 
+    @OneToMany(
+            mappedBy = "perfume",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    private List<Favorite> users = new ArrayList<>();
 
 }

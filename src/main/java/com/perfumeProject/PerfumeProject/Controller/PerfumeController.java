@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("/perfumes")
@@ -29,6 +30,14 @@ public class PerfumeController {
         }
 
 }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Perfume> getPerfumeById(@PathVariable Long id){
+        Optional<Perfume> perfume = parfumeService.getPerfumeById(id);
+        return perfume.map(ResponseEntity::ok)
+                .orElseGet(() -> ResponseEntity.notFound().build());
+    }
+
 }
 /*
     @GetMapping("/all")
