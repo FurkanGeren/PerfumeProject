@@ -33,4 +33,6 @@ public class UserController {
         User newUser = userService.addUser(user);
         return new ResponseEntity<>(newUser,HttpStatus.CREATED);
     }
+
+
 }

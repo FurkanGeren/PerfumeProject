@@ -2,6 +2,7 @@ package com.perfumeProject.PerfumeProject.Service;
 
 
 import com.perfumeProject.PerfumeProject.Model.Perfume;
+import com.perfumeProject.PerfumeProject.Repository.ContentRepository;
 import com.perfumeProject.PerfumeProject.Repository.PerfumeRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -16,6 +17,7 @@ public class ParfumeService implements IParfumeService {
 
 
     private final PerfumeRepository perfumeRepository;
+    private final ContentRepository contentRepository;
 
 
     @Override
@@ -27,4 +29,6 @@ public class ParfumeService implements IParfumeService {
     public Optional<Perfume> getPerfumeById(Long id){
         return perfumeRepository.findById(id);
     }
+
+
 }

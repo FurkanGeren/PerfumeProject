@@ -1,12 +1,10 @@
 package com.perfumeProject.PerfumeProject.Repository;
 
-
-import com.perfumeProject.PerfumeProject.Model.User;
+import com.perfumeProject.PerfumeProject.Model.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface UserRepository extends JpaRepository<User,Long> {
-
-    User findByEmail(String userEmail);
+public interface RoleRepository extends JpaRepository<Role, Long> {
+    Role findByRoleName(String roleName);
 }

@@ -1,10 +1,10 @@
 package com.perfumeProject.PerfumeProject.Model;
 import jakarta.persistence.*;
 
+import jakarta.validation.constraints.Email;
 import lombok.*;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 
 @Entity
@@ -15,14 +15,14 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Integer userId;
+    private Long userId;
 
     @Column(name = "user_name")
     private String userName;
     @Column(name = "user_surname")
     private String userSurname;
     @Column(name = "user_email", unique = true)
-    private String userEmail;
+    private String email;
     @Column(name = "password")
     private String userPassword;
 
@@ -32,4 +32,13 @@ public class User {
             orphanRemoval = true
     )
     private List<Favorite> perfume = new ArrayList<>();
+
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinTable(name = "users_roles",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private Collection<Role> roles;
+
+
+
 }
